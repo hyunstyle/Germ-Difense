@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "germDefense.Plugins", "germDefense.Plugins.csproj", "{95AF506C-62BE-80FD-D6B1-D8550C248BD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "germDefense", "germDefense.csproj", "{70706C86-8D21-7DC7-0F39-DFF967AFFFFD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95AF506C-62BE-80FD-D6B1-D8550C248BD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95AF506C-62BE-80FD-D6B1-D8550C248BD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95AF506C-62BE-80FD-D6B1-D8550C248BD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95AF506C-62BE-80FD-D6B1-D8550C248BD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70706C86-8D21-7DC7-0F39-DFF967AFFFFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70706C86-8D21-7DC7-0F39-DFF967AFFFFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70706C86-8D21-7DC7-0F39-DFF967AFFFFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70706C86-8D21-7DC7-0F39-DFF967AFFFFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

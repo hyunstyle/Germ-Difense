@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\InstantiateMonster.cs" />
+    <Compile Include="Assets\Script\buttonClick.cs" />
     <Compile Include="Assets\Script\goToHome.cs" />
     <Compile Include="Assets\Script\lifeController.cs" />
     <Compile Include="Assets\Script\rotateInhaler.cs" />

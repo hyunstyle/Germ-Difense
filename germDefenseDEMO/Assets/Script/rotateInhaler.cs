@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class rotateInhaler : MonoBehaviour
 {
@@ -25,14 +26,12 @@ public class rotateInhaler : MonoBehaviour
         }
     }
 
-    public GameObject inhaler_off;
-    public GameObject inhaler_on;
 
     private GameObject inhaler; // 움직일 청소기
 
     public Color normalColor;
     private Color clickedColor;
-    private bool isRotating;
+    public static bool isRotating;
     public float speed;
     public GameObject house;
     private float directionX;
@@ -61,10 +60,13 @@ public class rotateInhaler : MonoBehaviour
     Vector2 dir;
     float dist;
     float check;
-    float angle;
+    float touchAngle;
+    float inhalerAngle;
 
+    public GameObject prObj;
+    public GameObject ihl;
 
-    
+    public static GameObject currentInhaler;
 
     // Use this for initialization
     void Start ()
@@ -78,6 +80,35 @@ public class rotateInhaler : MonoBehaviour
         normalColor = this.transform.GetComponent<SpriteRenderer>().color;
         clickedColor = new Color(173, 173, 255);
         check = 360;
+
+       
+
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        string sceneName = currentScene.name;
+
+        if(sceneName.Contains("1"))
+        {
+
+        }
+        else if(sceneName.Contains("2"))
+        {
+
+        }
+        else if (sceneName.Contains("3"))
+        {
+
+        }
+        else if (sceneName.Contains("4"))
+        {
+
+        }
+        else if (sceneName.Contains("5"))
+        {
+
+        }
+
+        Debug.Log(currentScene.name);
         /*inhaler = this.transform;
 
         startingPos = inhaler.position;*/
@@ -86,17 +117,35 @@ public class rotateInhaler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isRotating)
-        {
 
-            /*if (this.transform.localPosition.x + (Screen.width / 2) > 0)
+        if(isRotating && this.transform.GetComponent<SpriteRenderer>().color == Color.green)
+        {
+            //touchAngle = Vector3.Angle(Vector3.up, new Vector3(Input.GetTouch(0).position.x - (Screen.width / 2), Input.GetTouch(0).position.y - (Screen.height / 2), 0));
+
+            touchAngle = Mathf.Atan2(Input.GetTouch(0).position.y - (Screen.height / 2), Input.GetTouch(0).position.x - (Screen.width / 2)) * Mathf.Rad2Deg;
+
+            if (prObj.name.Contains("1"))
             {
-                directionX = (this.transform.localPosition.x + (Screen.width / 2)) - Input.GetTouch(0).position.x;
+                prObj.transform.rotation = Quaternion.Euler(0, 0, touchAngle - 90f);
+            }
+            else if(prObj.name.Contains("2"))
+            {
+                prObj.transform.rotation = Quaternion.Euler(0, 0, touchAngle - 180f);
+            }
+            else if(prObj.name.Contains("3"))
+            {
+                prObj.transform.rotation = Quaternion.Euler(0, 0, touchAngle);
             }
             else
             {
-                directionX = (this.transform.localPosition.x + (Screen.width / 2)) - Input.GetTouch(0).position.x;
-            }*/
+                prObj.transform.rotation = Quaternion.Euler(0, 0, touchAngle + 90f);
+            }
+            
+        }
+
+
+        /*if (isRotating)
+        {
 
             directionX = (this.transform.localPosition.x + (Screen.width / 2)) - Input.GetTouch(0).position.x;
             directionY = (this.transform.localPosition.y + (Screen.height / 2)) - Input.GetTouch(0).position.y;
@@ -327,16 +376,21 @@ public class rotateInhaler : MonoBehaviour
         //inhaler = Instantiate(inhaler_off);
         //inhaler.transform.position = this.transform.position;
         //inhaler.transform.localScale = this.transform.localScale;
+
+        currentInhaler = this.gameObject;
         this.transform.GetComponent<SpriteRenderer>().color = Color.green;
         //inhaler_off.SetActive(false);
         Debug.Log("켜짐");
         isRotating = true;
+
+        
     }
 
     private void OnMouseUp()
     {
         isRotating = false;
         movingDirection = 0;
+        
 
         if (this.transform.GetComponent<SpriteRenderer>().color != Color.red)
         {
